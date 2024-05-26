@@ -1,0 +1,28 @@
+
+i
+java:S11921"GDefine a constant instead of duplicating this literal "button" 9 times.(Àâšäùÿÿÿÿ8ÌøÌ©û1
+i
+java:S1192‘"KDefine a constant instead of duplicating this literal "styles.css" 3 times.(øİ8ÍøÌ©û1
+h
+java:S1192h"KDefine a constant instead of duplicating this literal "text-field" 3 times.(úãŞ8ÍøÌ©û1
+h
+java:S1192l"FDefine a constant instead of duplicating this literal "label" 5 times.(×¡«Œÿÿÿÿÿ8ÎøÌ©û1
+j
+java:S1192’"LDefine a constant instead of duplicating this literal "border-pane" 3 times.(ÚŠ„Ë8ÎøÌ©û1
+v
+java:S1450""YRemove the "emailField" field and declare it as a local variable in the relevant methods.(†»ú¨8¯ùÌ©û1
+v
+java:S1450!"YRemove the "loginField" field and declare it as a local variable in the relevant methods.(Ã•8¯ùÌ©û1
+~
+java:S1450#"\Remove the "passwordField" field and declare it as a local variable in the relevant methods.(çœ‚ñÿÿÿÿÿ8°ùÌ©û1
+I
+java:S16025",Remove useless curly braces around statement(ŞúÊÖ8ºùÌ©û1
+G	java:S106{"+Replace this use of System.out by a logger.(²šš8ÖùÌ©û1
+L	java:S106~"+Replace this use of System.out by a logger.(—³İ‹ûÿÿÿÿ8×ùÌ©û1
+H	java:S106¤"+Replace this use of System.out by a logger.(µ—¸ˆ8ŞùÌ©û1
+\
+java:S1117Â">Rename "emailField" which hides the field declared at line 34.(å§Üƒ8âùÌ©û1
+d
+java:S1117Ä"ARename "passwordField" which hides the field declared at line 35.(–Øõ¤üÿÿÿÿ8ãùÌ©û1
+M	java:S106×"+Replace this use of System.out by a logger.(îÑîèüÿÿÿÿ8æùÌ©û1
+M	java:S106"+Replace this use of System.out by a logger.(‚î­½şÿÿÿÿ8ğùÌ©û1

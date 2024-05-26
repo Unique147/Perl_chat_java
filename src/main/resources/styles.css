@@ -1,0 +1,42 @@
+.button {
+    -fx-background-color: #6200EA;
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10px;
+}
+
+.label {
+    -fx-font-size: 15px;
+    -fx-text-fill: #6200EA;
+}
+
+.text-field, .password-field {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #6200EA;
+}
+
+.chat-area {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #6200EA;
+    -fx-background-color: #F3E5F5;
+}
+
+.top-panel, .bottom-panel, .chat-list-container, .border-pane {
+    -fx-background-color: #EDE7F6;
+}
+
+.list-view {
+    -fx-background-color: #EDE7F6;
+    -fx-border-color: #6200EA;
+}
+
+.root {
+    -fx-background-color: #EDE7F6;
+}
