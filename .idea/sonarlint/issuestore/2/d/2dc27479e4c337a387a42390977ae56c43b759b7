@@ -1,0 +1,9 @@
+
+”
+java:S1450"QRemove the "in" field and declare it as a local variable in the relevant methods.(»ğ¶ü8Øÿ¹ü1J$51195c21-2593-495d-97fc-06d896779de2
+š
+java:S1450"WRemove the "username" field and declare it as a local variable in the relevant methods.(‘ó¹²8Ùÿ¹ü1J$90f04f19-c2d1-4f7d-a96f-784bef6ed771
+l	java:S106#"+Replace this use of System.out by a logger.(‡Š±`8äÿ¹ü1J$a89814aa-4eea-4dbd-885d-06a9786dee83
+m	java:S106,"+Replace this use of System.out by a logger.(Úšİ†8åÿ¹ü1J$c349906e-b419-4f61-9d8a-60b9a4d016b2
+r
+java:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8Öƒ ¹ü1J$f663b3ab-ac95-4d35-9e4b-87177d43e7d6

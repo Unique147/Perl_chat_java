@@ -1,4 +1,4 @@
-package com.example.chat;
+/*package com.example.chat;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -33,4 +33,4 @@ public class EmailService {
         }
     }
 }
-
+*/

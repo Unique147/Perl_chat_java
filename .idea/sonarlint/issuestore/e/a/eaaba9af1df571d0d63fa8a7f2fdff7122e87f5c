@@ -1,28 +1,23 @@
 
-i
-java:S11921"GDefine a constant instead of duplicating this literal "button" 9 times.(Àâšäùÿÿÿÿ8ÌøÌ©û1
-i
-java:S1192‘"KDefine a constant instead of duplicating this literal "styles.css" 3 times.(øİ8ÍøÌ©û1
-h
-java:S1192h"KDefine a constant instead of duplicating this literal "text-field" 3 times.(úãŞ8ÍøÌ©û1
-h
-java:S1192l"FDefine a constant instead of duplicating this literal "label" 5 times.(×¡«Œÿÿÿÿÿ8ÎøÌ©û1
-j
-java:S1192’"LDefine a constant instead of duplicating this literal "border-pane" 3 times.(ÚŠ„Ë8ÎøÌ©û1
-v
-java:S1450""YRemove the "emailField" field and declare it as a local variable in the relevant methods.(†»ú¨8¯ùÌ©û1
-v
-java:S1450!"YRemove the "loginField" field and declare it as a local variable in the relevant methods.(Ã•8¯ùÌ©û1
-~
-java:S1450#"\Remove the "passwordField" field and declare it as a local variable in the relevant methods.(çœ‚ñÿÿÿÿÿ8°ùÌ©û1
-I
-java:S16025",Remove useless curly braces around statement(ŞúÊÖ8ºùÌ©û1
-G	java:S106{"+Replace this use of System.out by a logger.(²šš8ÖùÌ©û1
-L	java:S106~"+Replace this use of System.out by a logger.(—³İ‹ûÿÿÿÿ8×ùÌ©û1
-H	java:S106¤"+Replace this use of System.out by a logger.(µ—¸ˆ8ŞùÌ©û1
-\
-java:S1117Â">Rename "emailField" which hides the field declared at line 34.(å§Üƒ8âùÌ©û1
-d
-java:S1117Ä"ARename "passwordField" which hides the field declared at line 35.(–Øõ¤üÿÿÿÿ8ãùÌ©û1
-M	java:S106×"+Replace this use of System.out by a logger.(îÑîèüÿÿÿÿ8æùÌ©û1
-M	java:S106"+Replace this use of System.out by a logger.(‚î­½şÿÿÿÿ8ğùÌ©û1
+”
+java:S1192@"LDefine a constant instead of duplicating this literal "/styles.css" 4 times.(Ïäßóûÿÿÿÿ8‰ÌÂ‰ı1J$19af8f86-96d3-43ae-b8d5-2e7c4276ce7c
+
+java:S2095ª"DUse try-with-resources or close this "Socket" in a "finally" clause.(á¯Â¤øÿÿÿÿ8û½Òı1J$06430ff4-cf24-41fc-9dc7-041917984961
+”
+java:S1450$"QRemove the "in" field and declare it as a local variable in the relevant methods.(»ğ¶ü8ş½Òı1J$881baf51-942c-4267-816f-a9ee29729f89
+§
+java:S1450"_Remove the "loggedInUsername" field and declare it as a local variable in the relevant methods.(ò…ûúÿÿÿÿ8óÌÂ‰ı1J$5aea4335-6206-4c6c-85b0-96e87818b0b0
+
+java:S1450""URemove the "socket" field and declare it as a local variable in the relevant methods.(Å’¬Úşÿÿÿÿ8ÿ½Òı1J$7166b87a-79ab-4d61-90d0-86c6ea5c2746
+
+java:S1117q">Rename "emailField" which hides the field declared at line 31.(å§Üƒ8‘ÍÂ‰ı1J$cfaedb20-2b8f-44bb-80d3-560a9657d513
+‰
+java:S1117s"ARename "passwordField" which hides the field declared at line 32.(–Øõ¤üÿÿÿÿ8‘ÍÂ‰ı1J$eb83d123-f65a-4833-9312-481497d92e8a
+ƒ
+java:S1117ª":Rename "socket" which hides the field declared at line 34.(á¯Â¤øÿÿÿÿ8§¾Òı1J$3c8b1b5f-7338-4f45-93b9-b2c3e51764e3
+€
+java:S1117«"7Rename "out" which hides the field declared at line 35.(ÜÂ§™øÿÿÿÿ8§¾Òı1J$bf7592f2-5574-457b-b573-248d93b60244
+
+java:S1117¬"6Rename "in" which hides the field declared at line 36.(ÜÜ³¹ùÿÿÿÿ8§¾Òı1J$342532d5-8ad0-4ab7-8b80-a1ec8d2678d5
+|
+java:S1068"4Remove this unused "loggedInUsername" private field.(ò…ûúÿÿÿÿ8®ÍÂ‰ı1J$59d17f96-7716-4a38-aee7-732d703a4795

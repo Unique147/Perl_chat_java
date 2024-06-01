@@ -1,18 +1,3 @@
 
-
-java:S11922"GDefine a constant instead of duplicating this literal "250 OK" 3 times.(‰»Úğıÿÿÿÿ8şíø1J$24423df2-52fa-40e7-8440-e707d65a1ad9
-j
-java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8­îø1J$9530e6ff-31a5-47c4-9ee1-878738406fe6
-m	java:S106"+Replace this use of System.out by a logger.(†²’ä8ºîø1J$f5abc01f-c8f8-4c8a-a6cc-286f015dfdbc
-r	java:S106"+Replace this use of System.out by a logger.(·æÁøÿÿÿÿ8¼îø1J$f05bf00f-cf10-4888-8091-ef2d0d9a634a
-•
-java:S3776%"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(÷åş’8Ãîø1J$3b13cd13-a6b5-4265-82ef-443f255a8d9f
-m	java:S106."+Replace this use of System.out by a logger.(¯Ë¢Ğ8Ñîø1J$f24bc13d-e9af-4f87-881c-c4e1f0352a17
-m	java:S106@"+Replace this use of System.out by a logger.(›ç‹À8Üîø1J$2617ae83-8486-484e-a6b8-b3a496a0467a
-r	java:S106A"+Replace this use of System.out by a logger.(£öÅ¦ıÿÿÿÿ8İîø1J$60e92c57-f765-4fa6-8377-4ce350534060
-m	java:S106I"+Replace this use of System.out by a logger.(ãÕØ8ãîø1J$8675edd5-fc87-486a-9303-942df7f8212c
-
-java:S3400g"9Remove this method and declare a constant for this value.(«îÌÿÿÿÿÿ8ëîø1J$ce1c4955-a8dd-4cec-9109-1b6616c0db64
-v
-java:S1172d".Remove this unused method parameter "message".(•–”¿üÿÿÿÿ8ñîø1J$c8fdec27-b114-4588-83d2-62fe78c41720
-m	java:S106~"+Replace this use of System.out by a logger.(ãÕØ8„ïø1J$befded91-597e-4151-9e48-21ad5ee1150c
+]
+java:S1220""Move this file to a named package.8©æè¸ü1J$7a9bae9d-c50d-438b-81ea-3e5b8b39f9ec

@@ -1,0 +1,17 @@
+
+j
+java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8²»»ı1J$dadba180-7ef0-4653-924a-a3c32e533ca7
+m	java:S106"+Replace this use of System.out by a logger.(”½îÿ8»»»ı1J$787d4300-29c2-44df-a5e6-976a8b793093
+m	java:S106"+Replace this use of System.out by a logger.(ò”À¤8½»»ı1J$542101fd-3661-496f-9a32-ba60fae07077
+m	java:S106/"+Replace this use of System.out by a logger.(Ö‰¹à8Â»»ı1J$d21ddf9b-5324-48a6-9224-c0a2bbb07997
+r	java:S106:"+Replace this use of System.out by a logger.(œœ¬™üÿÿÿÿ8Ë»»ı1J$742f04db-dbf7-4ace-acd8-7fc086073bfc
+L
+java:S20930"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8öñÑı1
+
+java:S1117R"<Rename "username" which hides the field declared at line 38.(ıÛšò8Ç»»ı1J$da5215a2-acd8-4dd2-bed6-00cb88f89c4c
+r	java:S106y"+Replace this use of System.out by a logger.(‹Ãûÿÿÿÿ8Ì»»ı1J$3bd6fbce-0387-40c0-a3d5-d0dcc7abe8b6
+n	java:S106‚"+Replace this use of System.out by a logger.(Úšİ†8Í»»ı1J$fbd36bb1-cc2c-4256-8186-dc25c1e60550
+s	java:S106†"+Replace this use of System.out by a logger.(®®õ×üÿÿÿÿ8Í»»ı1J$517ade4d-92ca-4319-ba01-96fb0b5de349
+M	java:S106‹"+Replace this use of System.out by a logger.(úİúïøÿÿÿÿ8şñÑı1
+
+java:S2696"6Make the enclosing method "static" or remove this set.(·ÊƒØúÿÿÿÿ8Î»»ı1J$81746dfa-06cb-4f73-9a91-2bf8a81d90c3

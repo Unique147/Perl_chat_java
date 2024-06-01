@@ -17,3 +17,15 @@ c
 3src/main/java/com/example/chat/DatabaseManager.java,7\d\7dd361479b32305addc1bd440f22882e11e003f6
 _
 /src/main/java/com/example/chat/ChatManager.java,c\a\ca04f9825c58b89ef1c9c0837f17796f94f601fe
+^
+.src/main/java/com/example/chat/ChatServer.java,0\5\051be562e16e7f6984e02d3853e54c8d3d0ffc4b
+a
+1src/main/java/com/example/chat/ClientHandler.java,2\d\2dc27479e4c337a387a42390977ae56c43b759b7
+Å
+Q.idea/sonarlint/securityhotspotstore/0/5/051be562e16e7f6984e02d3853e54c8d3d0ffc4b,5\c\5cb3baac65e486497f91deb929e5803fef676d5b
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+Å
+Q.idea/sonarlint/securityhotspotstore/2/d/2dc27479e4c337a387a42390977ae56c43b759b7,2\0\201656a2a2ae2689147bfded70dc0c9d7c9f0685

@@ -1,4 +1,4 @@
-package com.example.chat;
+/*package com.example.chat;
 
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -115,7 +115,7 @@ public class SimpleSMTPServer {
         try {
             // Создание сообщения
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("noreply@example.com")); // Замените на ваш адрес отправителя
+            message.setFrom(new InternetAddress("perlchatjavasender@gmail.com")); // Замените на ваш адрес отправителя
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
             message.setSubject("Код подтверждения для регистрации");
             message.setText("Ваш код подтверждения для регистрации: " + verificationCode);
@@ -129,3 +129,4 @@ public class SimpleSMTPServer {
         }
     }
 }
+*/

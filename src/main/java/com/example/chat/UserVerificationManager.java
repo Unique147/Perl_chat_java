@@ -1,4 +1,4 @@
-package com.example.chat;
+/*package com.example.chat;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,3 +19,4 @@ public class UserVerificationManager {
         verificationCodes.remove(email);
     }
 }
+*/
