@@ -29,3 +29,5 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 Å
 Q.idea/sonarlint/securityhotspotstore/2/d/2dc27479e4c337a387a42390977ae56c43b759b7,2\0\201656a2a2ae2689147bfded70dc0c9d7c9f0685
+^
+.src/main/java/com/example/chat/MailSender.java,b\4\b465e2f64fc566edce8dd1f01fcaca75341b3bcf

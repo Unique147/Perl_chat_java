@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class ChatInterface extends Application {
 
@@ -34,6 +36,11 @@ public class ChatInterface extends Application {
     private Socket socket;
     private PrintWriter out;
     private BufferedReader in;
+
+    private TextArea chatTextArea;
+    private TextField messageField;
+
+    private final BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>(); // Final переменная
 
     public static void main(String[] args) {
         launch(args);
@@ -132,7 +139,7 @@ public class ChatInterface extends Application {
 
     private void loginUser(String email, String password) {
         try {
-            socket = new Socket("localhost", 12345);
+            socket = new Socket("192.168.1.66", 12345);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -167,7 +174,7 @@ public class ChatInterface extends Application {
 
     private void registerUser() {
         try {
-            Socket socket = new Socket("localhost", 12345);
+            Socket socket = new Socket("192.168.1.66", 12345);
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -194,36 +201,49 @@ public class ChatInterface extends Application {
         VBox chatLayout = new VBox(10);
         chatLayout.setPadding(new Insets(10));
 
+        chatTextArea = new TextArea();
+        chatTextArea.setEditable(false);
+        chatTextArea.setWrapText(true);
+        chatTextArea.setStyle("-fx-control-inner-background: white;");
         Label chatLabel = new Label("Чат");
-        ListView<String> chatListView = new ListView<>();
-        TextField messageField = new TextField();
+
+        messageField = new TextField();
         messageField.setPromptText("Введите сообщение...");
         Button sendButton = new Button("Отправить");
 
         HBox messageBox = new HBox(10, messageField, sendButton);
         messageBox.setAlignment(Pos.CENTER);
 
-        chatLayout.getChildren().addAll(chatLabel, chatListView, messageBox);
+        chatLayout.getChildren().addAll(chatLabel, chatTextArea, messageBox);
 
         sendButton.setOnAction(e -> {
             String message = messageField.getText();
             if (!message.isEmpty()) {
                 out.println("CHAT");
                 out.println(loggedInUniqueCode);
-                out.println(message);
+                out.println(loggedInUsername + ": " + message); // Format message before sending
                 messageField.clear();
             }
         });
+
+        new Thread(() -> {
+            try {
+                String message;
+                while ((message = messageQueue.take()) != null) {
+                    String finalMessage = message;
+                    Platform.runLater(() -> chatTextArea.appendText(finalMessage + "\n"));
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
 
         chatScene = new Scene(chatLayout, 400, 300);
         chatScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
     }
 
     private void appendMessage(String message) {
-        Platform.runLater(() -> {
-            ListView<String> chatListView = (ListView<String>) chatScene.lookup(".list-view");
-            chatListView.getItems().add(message);
-        });
+        Platform.runLater(() -> chatTextArea.appendText(message + "\n"));
     }
 
     private void showAlert(String title, String message) {

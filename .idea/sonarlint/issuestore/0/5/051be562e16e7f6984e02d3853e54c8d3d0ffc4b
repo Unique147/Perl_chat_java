@@ -1,17 +1,25 @@
 
+	java:S112•"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ûÈ”£ş1J$74aac85d-85e2-4f4e-b904-d005a21ac995
 j
-java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8²»»ı1J$dadba180-7ef0-4653-924a-a3c32e533ca7
-m	java:S106"+Replace this use of System.out by a logger.(”½îÿ8»»»ı1J$787d4300-29c2-44df-a5e6-976a8b793093
-m	java:S106"+Replace this use of System.out by a logger.(ò”À¤8½»»ı1J$542101fd-3661-496f-9a32-ba60fae07077
-m	java:S106/"+Replace this use of System.out by a logger.(Ö‰¹à8Â»»ı1J$d21ddf9b-5324-48a6-9224-c0a2bbb07997
-r	java:S106:"+Replace this use of System.out by a logger.(œœ¬™üÿÿÿÿ8Ë»»ı1J$742f04db-dbf7-4ace-acd8-7fc086073bfc
-L
-java:S20930"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8öñÑı1
+java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8Ê®“£ş1J$fbc919c1-0b69-48c4-83b3-9ac97862682a
+j
+java:S2189X""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8Ë®“£ş1J$94a6017b-19b5-4dd8-adfd-deb9ecce0f14
+m	java:S106"+Replace this use of System.out by a logger.(”½îÿ8Ù®“£ş1J$8b3d1300-2bd4-4283-b7b9-2c8cefea932c
+m	java:S106"+Replace this use of System.out by a logger.(ò”À¤8Û®“£ş1J$f3be7a41-2179-4c92-8a47-b714ec39751c
+¡
+java:S1450*"YRemove the "uniqueCode" field and declare it as a local variable in the relevant methods.(ä¡ş‡ûÿÿÿÿ8â®“£ş1J$5abf2940-d103-402e-a0b6-fb6d9383611b
+š
+java:S1450)"WRemove the "username" field and declare it as a local variable in the relevant methods.(‘ó¹²8ã®“£ş1J$9852daf8-0d04-4a4f-991d-9f27241f4856
+m	java:S1064"+Replace this use of System.out by a logger.(Ö‰¹à8ç®“£ş1J$64361a0b-ed68-4dfc-b83c-d952e55063aa
+r	java:S106?"+Replace this use of System.out by a logger.(œœ¬™üÿÿÿÿ8ê®“£ş1J$b098871a-371f-4da9-9dca-25e333ad12c3
+r
+java:S20935"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8î®“£ş1J$534f24cc-154c-4d72-8d62-59c25c1f56d1
+¡
+java:S2142\"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8ò®“£ş1J$0b6473df-c1d1-4103-bb15-98743a3a2630
 
-java:S1117R"<Rename "username" which hides the field declared at line 38.(ıÛšò8Ç»»ı1J$da5215a2-acd8-4dd2-bed6-00cb88f89c4c
-r	java:S106y"+Replace this use of System.out by a logger.(‹Ãûÿÿÿÿ8Ì»»ı1J$3bd6fbce-0387-40c0-a3d5-d0dcc7abe8b6
-n	java:S106‚"+Replace this use of System.out by a logger.(Úšİ†8Í»»ı1J$fbd36bb1-cc2c-4256-8186-dc25c1e60550
-s	java:S106†"+Replace this use of System.out by a logger.(®®õ×üÿÿÿÿ8Í»»ı1J$517ade4d-92ca-4319-ba01-96fb0b5de349
-M	java:S106‹"+Replace this use of System.out by a logger.(úİúïøÿÿÿÿ8şñÑı1
+java:S1117j"<Rename "username" which hides the field declared at line 41.(ıÛšò8ö®“£ş1J$1ac6d0b3-80d0-46d4-808f-c2c0fe1e64ca
+n	java:S106‘"+Replace this use of System.out by a logger.(ŞÆ ı8ı®“£ş1J$fa6ec88c-3e7e-4428-8c4c-7dc3cfc57c8b
+¢
+java:S2142”"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¼Ì”£ş1J$bb2601ca-57ff-40f6-9768-d983dc7d7ef0
 
-java:S2696"6Make the enclosing method "static" or remove this set.(·ÊƒØúÿÿÿÿ8Î»»ı1J$81746dfa-06cb-4f73-9a91-2bf8a81d90c3
+java:S2696š"6Make the enclosing method "static" or remove this set.(·ÊƒØúÿÿÿÿ8‚›ªóı1J$add0225d-c0dd-46cf-b929-313617a2a676

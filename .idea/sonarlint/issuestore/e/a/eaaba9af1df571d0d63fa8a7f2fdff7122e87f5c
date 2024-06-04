@@ -1,23 +1,23 @@
 
 ”
-java:S1192@"LDefine a constant instead of duplicating this literal "/styles.css" 4 times.(Ïäßóûÿÿÿÿ8‰ÌÂ‰ı1J$19af8f86-96d3-43ae-b8d5-2e7c4276ce7c
+java:S1192G"LDefine a constant instead of duplicating this literal "/styles.css" 4 times.(Ïäßóûÿÿÿÿ8‘¬’£ş1J$8f891814-5c5e-4d64-97a2-2a644e9fa8f4
 
-java:S2095ª"DUse try-with-resources or close this "Socket" in a "finally" clause.(á¯Â¤øÿÿÿÿ8û½Òı1J$06430ff4-cf24-41fc-9dc7-041917984961
+java:S2095±"DUse try-with-resources or close this "Socket" in a "finally" clause.(ºÊ¢ÿÿÿÿÿ8¤­’£ş1J$fc41cbcc-69d8-4373-b4f1-c125fa787f3c
 ”
-java:S1450$"QRemove the "in" field and declare it as a local variable in the relevant methods.(»ğ¶ü8ş½Òı1J$881baf51-942c-4267-816f-a9ee29729f89
-§
-java:S1450"_Remove the "loggedInUsername" field and declare it as a local variable in the relevant methods.(ò…ûúÿÿÿÿ8óÌÂ‰ı1J$5aea4335-6206-4c6c-85b0-96e87818b0b0
+java:S1450&"QRemove the "in" field and declare it as a local variable in the relevant methods.(»ğ¶ü8»í­óı1J$ce1a6688-f2be-4c5f-bd65-755aed13fe0b
+£
+java:S1450)"[Remove the "messageField" field and declare it as a local variable in the relevant methods.(ãƒ¸Ãşÿÿÿÿ8¼í­óı1J$7ba4d11e-6fc1-4e74-a3d8-8a877b838644
 
-java:S1450""URemove the "socket" field and declare it as a local variable in the relevant methods.(Å’¬Úşÿÿÿÿ8ÿ½Òı1J$7166b87a-79ab-4d61-90d0-86c6ea5c2746
+java:S1450$"URemove the "socket" field and declare it as a local variable in the relevant methods.(Å’¬Úşÿÿÿÿ8¼í­óı1J$7843c47b-6602-4a16-a1e2-6e194ca72dc6
 
-java:S1117q">Rename "emailField" which hides the field declared at line 31.(å§Üƒ8‘ÍÂ‰ı1J$cfaedb20-2b8f-44bb-80d3-560a9657d513
+java:S1117x">Rename "emailField" which hides the field declared at line 33.(å§Üƒ8ì­’£ş1J$8a12dc9d-9219-46d3-8282-0e0d562c2f00
 ‰
-java:S1117s"ARename "passwordField" which hides the field declared at line 32.(–Øõ¤üÿÿÿÿ8‘ÍÂ‰ı1J$eb83d123-f65a-4833-9312-481497d92e8a
+java:S1117z"ARename "passwordField" which hides the field declared at line 34.(–Øõ¤üÿÿÿÿ8ì­’£ş1J$938c4d25-3c56-4338-8fdc-4f8c5031908b
 ƒ
-java:S1117ª":Rename "socket" which hides the field declared at line 34.(á¯Â¤øÿÿÿÿ8§¾Òı1J$3c8b1b5f-7338-4f45-93b9-b2c3e51764e3
+java:S1117±":Rename "socket" which hides the field declared at line 36.(ºÊ¢ÿÿÿÿÿ8‚®’£ş1J$62a81994-f3de-4958-b780-70c3423de10b
 €
-java:S1117«"7Rename "out" which hides the field declared at line 35.(ÜÂ§™øÿÿÿÿ8§¾Òı1J$bf7592f2-5574-457b-b573-248d93b60244
+java:S1117²"7Rename "out" which hides the field declared at line 37.(ÜÂ§™øÿÿÿÿ8ƒ®’£ş1J$27edfea5-ab68-4ed5-82cf-a161a946c574
 
-java:S1117¬"6Rename "in" which hides the field declared at line 36.(ÜÜ³¹ùÿÿÿÿ8§¾Òı1J$342532d5-8ad0-4ab7-8b80-a1ec8d2678d5
-|
-java:S1068"4Remove this unused "loggedInUsername" private field.(ò…ûúÿÿÿÿ8®ÍÂ‰ı1J$59d17f96-7716-4a38-aee7-732d703a4795
+java:S1117³"6Rename "in" which hides the field declared at line 38.(ÜÜ³¹ùÿÿÿÿ8ƒ®’£ş1J$c2affacf-4f43-45e5-b9bf-08120fe338ed
+¢
+java:S2142ì"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8’®’£ş1J$75e101c3-d573-4c7c-9c1e-3058c442a650
