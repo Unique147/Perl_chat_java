@@ -1,5 +1,4 @@
 package com.example.chat;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -25,13 +24,17 @@ public class ChatInterface extends Application {
     private Scene initialScene;
     private Scene loginScene;
     private Scene registerScene;
+    private Scene confirmationScene;
     private Scene chatScene;
     private String loggedInUsername;
     private String loggedInUniqueCode;
+    private String currentEmail;
 
     private TextField loginField;
     private TextField emailField;
     private PasswordField passwordField;
+    private TextField codeField;
+    private Label loggedInLabel;
 
     private Socket socket;
     private PrintWriter out;
@@ -39,8 +42,9 @@ public class ChatInterface extends Application {
 
     private TextArea chatTextArea;
     private TextField messageField;
+    private SessionManager sessionManager;
 
-    private final BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>(); // Final переменная
+    private final BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
 
     public static void main(String[] args) {
         launch(args);
@@ -49,6 +53,10 @@ public class ChatInterface extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
+        this.sessionManager = new SessionManager(this);
+
+        Label titleLabel = new Label("Perl chat");
+        titleLabel.setStyle("-fx-font-size: 60px; -fx-text-fill: #6200EA;");
 
         Button registerButton = new Button("Зарегистрироваться");
         Button loginButton = new Button("Войти");
@@ -64,14 +72,19 @@ public class ChatInterface extends Application {
         root.setVgap(10);
         root.setPadding(new Insets(25, 25, 25, 25));
 
-        root.add(registerButton, 0, 0);
-        root.add(loginButton, 1, 0);
+        root.add(titleLabel, 0, 0, 2, 1);
+        GridPane.setHalignment(titleLabel, Pos.CENTER.getHpos());
+
+        root.add(registerButton, 0, 1);
+        root.add(loginButton, 1, 1);
+
 
         initialScene = new Scene(root, 400, 300);
         initialScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
         createLoginScene();
         createRegisterScene();
+        createConfirmationScene();
 
         primaryStage.setScene(initialScene);
         primaryStage.setTitle("Чат");
@@ -117,9 +130,9 @@ public class ChatInterface extends Application {
         loginLayout.setPadding(new Insets(25, 25, 25, 25));
 
         Label loginLabel = new Label("Вход");
-        TextField emailField = new TextField();
+        emailField = new TextField();
         emailField.setPromptText("Email");
-        PasswordField passwordField = new PasswordField();
+        passwordField = new PasswordField();
         passwordField.setPromptText("Пароль");
         Button loginButton = new Button("Войти");
         Button backButton = new Button("Назад");
@@ -137,23 +150,73 @@ public class ChatInterface extends Application {
         loginButton.setOnAction(e -> loginUser(emailField.getText(), passwordField.getText()));
     }
 
+    private void createConfirmationScene() {
+        GridPane confirmationLayout = new GridPane();
+        confirmationLayout.setAlignment(Pos.CENTER);
+        confirmationLayout.setHgap(10);
+        confirmationLayout.setVgap(10);
+        confirmationLayout.setPadding(new Insets(25, 25, 25, 25));
+
+        Label confirmationLabel = new Label("Подтверждение");
+        codeField = new TextField();
+        codeField.setPromptText("Введите код");
+        Button confirmButton = new Button("Продолжить");
+        Button backButton = new Button("Назад");
+
+        confirmationLayout.add(confirmationLabel, 0, 0, 2, 1);
+        confirmationLayout.add(codeField, 0, 1);
+        confirmationLayout.add(confirmButton, 0, 2);
+        confirmationLayout.add(backButton, 1, 2);
+
+        confirmationScene = new Scene(confirmationLayout, 400, 300);
+        confirmationScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+
+        backButton.setOnAction(e -> primaryStage.setScene(loginScene));
+        confirmButton.setOnAction(e -> confirmCode());
+    }
+
     private void loginUser(String email, String password) {
         try {
-            socket = new Socket("192.168.1.66", 12345);
+            // Установка соединения с сервером
+            socket = new Socket("192.168.1.65", 12345);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
+            // Отправка данных для входа
             out.println("LOGIN");
             out.println(email);
             out.println(password);
 
+            // Чтение ответа от сервера
             String response = in.readLine();
             if ("LOGIN_SUCCESS".equals(response)) {
+                currentEmail = email;
+
+                primaryStage.setScene(confirmationScene); // Переход на сцену подтверждения
+            } else {
+                showAlert("Ошибка входа", "Неправильный email или пароль.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void confirmCode() {
+        try {
+            // Отправка кода подтверждения на сервер
+            out.println("CONFIRM_CODE");
+            out.println(currentEmail);
+            out.println(codeField.getText());
+
+            // Чтение ответа от сервера
+            String response = in.readLine();
+            if ("CONFIRM_SUCCESS".equals(response)) {
                 loggedInUsername = in.readLine();
                 loggedInUniqueCode = in.readLine();
                 createChatScene();
                 primaryStage.setScene(chatScene);
 
+                // Запуск нового потока для чтения сообщений из сервера
                 new Thread(() -> {
                     try {
                         String message;
@@ -164,8 +227,10 @@ public class ChatInterface extends Application {
                         e.printStackTrace();
                     }
                 }).start();
+                // Начало сессии
+                sessionManager.startSession(loggedInUniqueCode);
             } else {
-                showAlert("Ошибка входа", "Неправильный email или пароль.");
+                showAlert("Ошибка подтверждения", "Неправильный код подтверждения.");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -174,27 +239,53 @@ public class ChatInterface extends Application {
 
     private void registerUser() {
         try {
-            Socket socket = new Socket("192.168.1.66", 12345);
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            // Установка соединения с сервером
+            socket = new Socket("192.168.1.65", 12345);
+            out = new PrintWriter(socket.getOutputStream(), true); // Убедитесь, что используете поле out
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
+            // Отправка данных для регистрации
             out.println("REGISTER");
             out.println(loginField.getText());
             out.println(emailField.getText());
             out.println(passwordField.getText());
 
+            // Чтение ответа от сервера
             String response = in.readLine();
             if ("REGISTER_SUCCESS".equals(response)) {
-                showAlert("Успех", "Регистрация прошла успешно. Теперь вы можете войти.");
+                showAlert("Успех", "Регистрация прошла успешно.");
                 primaryStage.setScene(loginScene);
             } else {
                 showAlert("Ошибка регистрации", "Пользователь с таким именем или email уже существует.");
             }
-
-            socket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void showConfirmationScene(String userCode) {
+        Platform.runLater(() -> {
+            primaryStage.setScene(confirmationScene);
+            sessionManager.startConfirmationTimer(userCode);
+        });
+    }
+
+    public void logoutUser() {
+        Platform.runLater(() -> {
+            sessionManager.stopSession(loggedInUniqueCode);
+            primaryStage.setScene(initialScene);
+            showAlert("Сеанс завершен", "Вы были разлогинены.");
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            loggedInUsername = null;
+            loggedInUniqueCode = null;
+            currentEmail = null;
+
+            loggedInLabel.setText("");
+        });
     }
 
     private void createChatScene() {
@@ -205,7 +296,14 @@ public class ChatInterface extends Application {
         chatTextArea.setEditable(false);
         chatTextArea.setWrapText(true);
         chatTextArea.setStyle("-fx-control-inner-background: white;");
+
         Label chatLabel = new Label("Чат");
+
+        Button logoutButton = new Button("Выйти");
+        logoutButton.setOnAction(event -> logoutUser());
+
+        loggedInLabel = new Label("Пользователь: " + loggedInUsername);
+        loggedInLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #6200EA;");
 
         messageField = new TextField();
         messageField.setPromptText("Введите сообщение...");
@@ -214,14 +312,17 @@ public class ChatInterface extends Application {
         HBox messageBox = new HBox(10, messageField, sendButton);
         messageBox.setAlignment(Pos.CENTER);
 
-        chatLayout.getChildren().addAll(chatLabel, chatTextArea, messageBox);
+        HBox topBox = new HBox(10, loggedInLabel, logoutButton);
+        topBox.setAlignment(Pos.CENTER_RIGHT);
+
+        chatLayout.getChildren().addAll(topBox, chatLabel, chatTextArea, messageBox);
 
         sendButton.setOnAction(e -> {
             String message = messageField.getText();
             if (!message.isEmpty()) {
                 out.println("CHAT");
                 out.println(loggedInUniqueCode);
-                out.println(loggedInUsername + ": " + message); // Format message before sending
+                out.println(loggedInUsername + ": " + message);
                 messageField.clear();
             }
         });
@@ -241,6 +342,7 @@ public class ChatInterface extends Application {
         chatScene = new Scene(chatLayout, 400, 300);
         chatScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
     }
+
 
     private void appendMessage(String message) {
         Platform.runLater(() -> chatTextArea.appendText(message + "\n"));

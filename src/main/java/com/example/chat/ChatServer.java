@@ -6,17 +6,16 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-
 
 public class ChatServer {
 
     private static final int PORT = 12345;
     private static HashMap<String, ClientHandler> clients = new HashMap<>();
     private static ArrayList<User> registeredUsers = new ArrayList<>();
+    private static HashMap<String, String> confirmationCodes = new HashMap<>();
     private static int nextUniqueCode = 1;
     private static BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
 
@@ -42,7 +41,7 @@ public class ChatServer {
         private String uniqueCode;
         private BlockingQueue<String> messageQueue;
 
-        public ClientHandler(Socket socket, BlockingQueue<String> messageQueue) { // Убрали TextArea
+        public ClientHandler(Socket socket, BlockingQueue<String> messageQueue) {
             this.socket = socket;
             this.messageQueue = messageQueue;
         }
@@ -66,6 +65,8 @@ public class ChatServer {
                         handleRegister();
                     } else if ("LOGIN".equals(command)) {
                         handleLogin();
+                    } else if ("CONFIRM_CODE".equals(command)) {
+                        handleConfirmCode();
                     } else if ("CHAT".equals(command)) {
                         handleChat();
                     }
@@ -88,7 +89,7 @@ public class ChatServer {
             while (true) {
                 try {
                     String message = messageQueue.take();
-                    broadcastMessage(message); // Broadcast the message to all clients
+                    broadcastMessage(message);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     break;
@@ -116,6 +117,8 @@ public class ChatServer {
 
             User newUser = new User(username, email, password);
             registeredUsers.add(newUser);
+            String code = generateConfirmationCode(email);
+            MailSender.sendConfirmationCode(email, code);
             out.println("REGISTER_SUCCESS");
         }
 
@@ -125,13 +128,9 @@ public class ChatServer {
 
             for (User user : registeredUsers) {
                 if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
-                    this.username = user.getUsername();
-                    this.uniqueCode = generateUniqueCode();
+                    String code = generateConfirmationCode(email);
+                    MailSender.sendConfirmationCode(email, code);
                     out.println("LOGIN_SUCCESS");
-                    out.println(username);
-                    out.println(uniqueCode);
-                    clients.put(uniqueCode, this);
-                    new Thread(this::processMessages).start();  // Start the message processing thread here after login
                     return;
                 }
             }
@@ -139,12 +138,35 @@ public class ChatServer {
             out.println("LOGIN_FAIL");
         }
 
+        private void handleConfirmCode() throws IOException {
+            String email = in.readLine();
+            String code = in.readLine();
+
+            if (confirmationCodes.containsKey(email) && confirmationCodes.get(email).equals(code)) {
+                confirmationCodes.remove(email);
+                for (User user : registeredUsers) {
+                    if (user.getEmail().equals(email)) {
+                        this.username = user.getUsername();
+                        this.uniqueCode = generateUniqueCode();
+                        out.println("CONFIRM_SUCCESS");
+                        out.println(username);
+                        out.println(uniqueCode);
+                        clients.put(uniqueCode, this);
+                        new Thread(this::processMessages).start();
+                        return;
+                    }
+                }
+            }
+
+            out.println("CONFIRM_FAIL");
+        }
+
         private void handleChat() throws IOException {
             String userCode = in.readLine();
             String message = in.readLine();
             System.out.println("Получено сообщение от " + userCode + ": " + message);
             try {
-                messageQueue.put(message); // Add message to the queue
+                messageQueue.put(message);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -152,6 +174,12 @@ public class ChatServer {
 
         private String generateUniqueCode() {
             return String.valueOf(nextUniqueCode++);
+        }
+
+        private String generateConfirmationCode(String email) {
+            String code = String.valueOf(new Random().nextInt(899999) + 100000);
+            confirmationCodes.put(email, code);
+            return code;
         }
     }
 
