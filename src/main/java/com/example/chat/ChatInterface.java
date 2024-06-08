@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -177,22 +180,27 @@ public class ChatInterface extends Application {
 
     private void loginUser(String email, String password) {
         try {
-            // Установка соединения с сервером
+            // Хэшируем пароль, введенный пользователем
+            String hashedPassword = hashPassword(password);
+
+            // Устанавливаем соединение с сервером
             socket = new Socket("192.168.1.65", 12345);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            // Отправка данных для входа
+            // Отправляем серверу команду "LOGIN", email и хэш пароля
             out.println("LOGIN");
             out.println(email);
-            out.println(password);
+            out.println(hashedPassword);
 
-            // Чтение ответа от сервера
+            // Читаем ответ от сервера
             String response = in.readLine();
+
+
+            // Проверяем ответ от сервера
             if ("LOGIN_SUCCESS".equals(response)) {
                 currentEmail = email;
-
-                primaryStage.setScene(confirmationScene); // Переход на сцену подтверждения
+                primaryStage.setScene(confirmationScene);
             } else {
                 showAlert("Ошибка входа", "Неправильный email или пароль.");
             }
@@ -200,6 +208,21 @@ public class ChatInterface extends Application {
             e.printStackTrace();
         }
     }
+
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hashBytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     private void confirmCode() {
         try {
@@ -211,8 +234,8 @@ public class ChatInterface extends Application {
             // Чтение ответа от сервера
             String response = in.readLine();
             if ("CONFIRM_SUCCESS".equals(response)) {
-                loggedInUsername = in.readLine();
-                loggedInUniqueCode = in.readLine();
+                loggedInUsername = in.readLine(); // Считываем логин пользователя с сервера
+                loggedInUniqueCode = in.readLine(); // Считываем уникальный код
                 createChatScene();
                 primaryStage.setScene(chatScene);
 
@@ -237,18 +260,22 @@ public class ChatInterface extends Application {
         }
     }
 
+
     private void registerUser() {
         try {
             // Установка соединения с сервером
             socket = new Socket("192.168.1.65", 12345);
-            out = new PrintWriter(socket.getOutputStream(), true); // Убедитесь, что используете поле out
+            out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            // Отправка данных для регистрации
+            String hashedPassword = hashPassword(passwordField.getText());
+
+            // Отправка данных для регистрации, включая соль
             out.println("REGISTER");
             out.println(loginField.getText());
             out.println(emailField.getText());
-            out.println(passwordField.getText());
+            out.println(hashedPassword);
+
 
             // Чтение ответа от сервера
             String response = in.readLine();
@@ -267,6 +294,7 @@ public class ChatInterface extends Application {
         Platform.runLater(() -> {
             primaryStage.setScene(confirmationScene);
             sessionManager.startConfirmationTimer(userCode);
+
         });
     }
 

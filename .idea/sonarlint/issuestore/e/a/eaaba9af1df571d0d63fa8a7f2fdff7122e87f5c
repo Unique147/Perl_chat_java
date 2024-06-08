@@ -1,9 +1,10 @@
 
+	java:S112Ş"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8º§ÁÇÿ1J$fe7249ec-db72-4a85-8f1e-4fb7f9a77756
 
-java:S1192m"KDefine a constant instead of duplicating this literal "ĞĞ°Ğ·Ğ°Ğ´" 3 times.(ÈËÄË8±¿ÿ1J$7a8474dd-67ca-49bc-b335-d2c787d780ed
+java:S1192p"KDefine a constant instead of duplicating this literal "ĞĞ°Ğ·Ğ°Ğ´" 3 times.(ÈËÄË8¾§ÁÇÿ1J$74e6b411-b392-4d4b-9bde-9033b1f86a97
 ”
-java:S1192S"LDefine a constant instead of duplicating this literal "/styles.css" 5 times.(Ïäßóûÿÿÿÿ8²¿ÿ1J$422464eb-9711-412e-a9f4-e52f1f355434
+java:S1192V"LDefine a constant instead of duplicating this literal "/styles.css" 5 times.(Ïäßóûÿÿÿÿ8¾§ÁÇÿ1J$dd804cd8-7796-4107-a172-162d29f50ec2
 £
-java:S1450,"[Remove the "messageField" field and declare it as a local variable in the relevant methods.(ãƒ¸Ãşÿÿÿÿ8›‘¿ÿ1J$584c8dd6-d52d-403b-bae1-8203b352be53
+java:S1450/"[Remove the "messageField" field and declare it as a local variable in the relevant methods.(ãƒ¸Ãşÿÿÿÿ8ª¨ÁÇÿ1J$eca94b5a-5360-4e46-a01d-4248baa7a79f
 ¢
-java:S2142Ñ"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8êŞŠ¡ÿ1J$0b5dbe35-1053-478e-b5e6-7a0b97cc2bca
+java:S2142í"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8©ÁÇÿ1J$3356451c-4f16-49b7-a942-b315d7d2fdf1

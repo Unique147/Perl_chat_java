@@ -2,7 +2,10 @@
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-241.15989.150">
     <data-source name="chatapp" uuid="0347ebd8-68fc-452d-af01-093ff87a6086">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" />
+      <database-info product="SQLite" version="3.45.1" jdbc-version="4.2" driver-name="SQLite JDBC" driver-version="3.45.1.0" dbms="SQLITE" exact-version="3.45.1" exact-driver-version="3.45">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <auth-provider>no-auth</auth-provider>
       <schema-mapping />
     </data-source>

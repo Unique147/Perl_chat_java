@@ -6,18 +6,28 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.*;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class ChatServer {
 
     private static final int PORT = 12345;
-    private static HashMap<String, ClientHandler> clients = new HashMap<>();
-    private static ArrayList<User> registeredUsers = new ArrayList<>();
-    private static HashMap<String, String> confirmationCodes = new HashMap<>();
-    private static int nextUniqueCode = 1;
-    private static BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
+    private static final Map<String, ClientHandler> clients = new HashMap<>();
+    private static final Map<String, String> confirmationCodes = new HashMap<>();
+    private static final int nextUniqueCode = 1;
+    private static final BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
 
     public static void main(String[] args) {
         System.out.println("Сервер запущен...");
@@ -108,34 +118,28 @@ public class ChatServer {
             String email = in.readLine();
             String password = in.readLine();
 
-            for (User user : registeredUsers) {
-                if (user.getUsername().equals(username) || user.getEmail().equals(email)) {
+            if (DatabaseManager.checkUserExists(username, email)) {
+                out.println("REGISTER_FAIL");
+            } else {
+                if (DatabaseManager.registerUser(username, email, hashPassword(password))) {
+                    out.println("REGISTER_SUCCESS");
+                } else {
                     out.println("REGISTER_FAIL");
-                    return;
                 }
             }
-
-            User newUser = new User(username, email, password);
-            registeredUsers.add(newUser);
-            String code = generateConfirmationCode(email);
-            MailSender.sendConfirmationCode(email, code);
-            out.println("REGISTER_SUCCESS");
         }
 
         private void handleLogin() throws IOException {
             String email = in.readLine();
             String password = in.readLine();
 
-            for (User user : registeredUsers) {
-                if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
-                    String code = generateConfirmationCode(email);
-                    MailSender.sendConfirmationCode(email, code);
-                    out.println("LOGIN_SUCCESS");
-                    return;
-                }
+            if (DatabaseManager.validateUser(email, hashPassword(password))) {
+                String code = generateConfirmationCode(email);
+                MailSender.sendConfirmationCode(email, code);
+                out.println("LOGIN_SUCCESS");
+            } else {
+                out.println("LOGIN_FAIL");
             }
-
-            out.println("LOGIN_FAIL");
         }
 
         private void handleConfirmCode() throws IOException {
@@ -144,22 +148,19 @@ public class ChatServer {
 
             if (confirmationCodes.containsKey(email) && confirmationCodes.get(email).equals(code)) {
                 confirmationCodes.remove(email);
-                for (User user : registeredUsers) {
-                    if (user.getEmail().equals(email)) {
-                        this.username = user.getUsername();
-                        this.uniqueCode = generateUniqueCode();
-                        out.println("CONFIRM_SUCCESS");
-                        out.println(username);
-                        out.println(uniqueCode);
-                        clients.put(uniqueCode, this);
-                        new Thread(this::processMessages).start();
-                        return;
-                    }
-                }
+                this.username = DatabaseManager.getUsernameByEmail(email); // Получаем имя пользователя по email
+                this.uniqueCode = generateUniqueCode();
+                out.println("CONFIRM_SUCCESS");
+                out.println(username);
+                out.println(uniqueCode);
+                clients.put(uniqueCode, this);
+                new Thread(this::processMessages).start();
+            } else {
+                out.println("CONFIRM_FAIL");
             }
-
-            out.println("CONFIRM_FAIL");
         }
+
+
 
         private void handleChat() throws IOException {
             String userCode = in.readLine();
@@ -172,38 +173,28 @@ public class ChatServer {
             }
         }
 
-        private String generateUniqueCode() {
-            return String.valueOf(nextUniqueCode++);
-        }
 
         private String generateConfirmationCode(String email) {
             String code = String.valueOf(new Random().nextInt(899999) + 100000);
             confirmationCodes.put(email, code);
             return code;
         }
-    }
 
-    private static class User {
-        private String username;
-        private String email;
-        private String password;
-
-        public User(String username, String email, String password) {
-            this.username = username;
-            this.email = email;
-            this.password = password;
+        private String hashPassword(String password) {
+            try {
+                MessageDigest md = MessageDigest.getInstance("SHA-256");
+                byte[] hashBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+                StringBuilder sb = new StringBuilder();
+                for (byte b : hashBytes) {
+                    sb.append(String.format("%02x", b));
+                }
+                return sb.toString();
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
         }
-
-        public String getUsername() {
-            return username;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public String getPassword() {
-            return password;
+        private String generateUniqueCode() {
+            return Base64.getEncoder().encodeToString(new byte[16]); // Генерирует случайный уникальный код
         }
     }
 }

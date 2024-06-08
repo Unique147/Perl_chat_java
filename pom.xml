@@ -65,6 +65,19 @@
       <version>3.36.0.3</version>
     </dependency>
 
+    <!-- Dependency for H2 Database -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.200</version>
+    </dependency>
+
+    <!-- Dependency for MySQL Database -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.26</version>
+    </dependency>
 
   </dependencies>
 

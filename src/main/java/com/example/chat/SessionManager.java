@@ -8,7 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class SessionManager {
-    private static final long SESSION_TIMEOUT = 60000; // 1 час в миллисекундах
+    private static final long SESSION_TIMEOUT = 3600000; // 1 час в миллисекундах
     private static final long CONFIRMATION_TIMEOUT = 60000; // 1 минута в миллисекундах
 
     private Map<String, Timer> userTimers = new HashMap<>();
