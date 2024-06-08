@@ -133,7 +133,10 @@ public class ChatServer {
             String email = in.readLine();
             String password = in.readLine();
 
-            if (DatabaseManager.validateUser(email, hashPassword(password))) {
+            String storedPassword = DatabaseManager.getPasswordByEmail(email);
+            String hashedPassword = hashPassword(password);
+
+            if (storedPassword != null && storedPassword.equals(hashedPassword)) {
                 String code = generateConfirmationCode(email);
                 MailSender.sendConfirmationCode(email, code);
                 out.println("LOGIN_SUCCESS");
@@ -141,6 +144,7 @@ public class ChatServer {
                 out.println("LOGIN_FAIL");
             }
         }
+
 
         private void handleConfirmCode() throws IOException {
             String email = in.readLine();

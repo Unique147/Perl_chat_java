@@ -36,7 +36,8 @@ public class ChatInterface extends Application {
 
     private TextField loginField;
     private TextField emailField;
-    private PasswordField passwordField;
+    private PasswordField passwordFieldRegister;
+    private PasswordField passwordFieldLogin;
     private TextField codeField;
     private Label loggedInLabel;
 
@@ -107,15 +108,15 @@ public class ChatInterface extends Application {
         loginField.setPromptText("Логин");
         emailField = new TextField();
         emailField.setPromptText("Email");
-        passwordField = new PasswordField();
-        passwordField.setPromptText("Пароль");
+        passwordFieldRegister = new PasswordField();
+        passwordFieldRegister.setPromptText("Пароль");
         Button registerButton = new Button("Зарегистрироваться");
         Button backButton = new Button("Назад");
 
         registerLayout.add(registerLabel, 0, 0, 2, 1);
         registerLayout.add(loginField, 0, 1);
         registerLayout.add(emailField, 0, 2);
-        registerLayout.add(passwordField, 0, 3);
+        registerLayout.add(passwordFieldRegister, 0, 3);
         registerLayout.add(registerButton, 0, 4);
         registerLayout.add(backButton, 1, 4);
 
@@ -136,14 +137,14 @@ public class ChatInterface extends Application {
         Label loginLabel = new Label("Вход");
         emailField = new TextField();
         emailField.setPromptText("Email");
-        passwordField = new PasswordField();
-        passwordField.setPromptText("Пароль");
+        passwordFieldLogin = new PasswordField();
+        passwordFieldLogin.setPromptText("Пароль");
         Button loginButton = new Button("Войти");
         Button backButton = new Button("Назад");
 
         loginLayout.add(loginLabel, 0, 0, 2, 1);
         loginLayout.add(emailField, 0, 1);
-        loginLayout.add(passwordField, 0, 2);
+        loginLayout.add(passwordFieldLogin, 0, 2);
         loginLayout.add(loginButton, 0, 3);
         loginLayout.add(backButton, 1, 3);
 
@@ -151,7 +152,7 @@ public class ChatInterface extends Application {
         loginScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
         backButton.setOnAction(e -> primaryStage.setScene(initialScene));
-        loginButton.setOnAction(e -> loginUser(emailField.getText(), passwordField.getText()));
+        loginButton.setOnAction(e -> loginUser(emailField.getText(), passwordFieldLogin.getText()));
     }
 
     private void createConfirmationScene() {
@@ -188,11 +189,11 @@ public class ChatInterface extends Application {
             socket = new Socket("192.168.1.65", 12345);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
+            String hashedPasswordLogin = hashPassword(passwordFieldLogin.getText());
             // Отправляем серверу команду "LOGIN", email и хэш пароля
             out.println("LOGIN");
             out.println(email);
-            out.println(hashedPassword);
+            out.println(hashedPasswordLogin);
 
             // Читаем ответ от сервера
             String response = in.readLine();
@@ -269,7 +270,7 @@ public class ChatInterface extends Application {
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            String hashedPassword = hashPassword(passwordField.getText());
+            String hashedPassword = hashPassword(passwordFieldRegister.getText());
 
             // Отправка данных для регистрации, включая соль
             out.println("REGISTER");

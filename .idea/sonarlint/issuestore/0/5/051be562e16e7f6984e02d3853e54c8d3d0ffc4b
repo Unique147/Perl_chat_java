@@ -1,39 +1,39 @@
 
-Ž	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¹ ˆÄÿ1J$286d9748-5e36-4ae1-a7a2-9971712bdd26
-Ž	java:S112Á"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ú¸ÊÇÿ1J$6a56dd8d-826f-4018-ac27-4c2e2ffa4861
+Ž	java:S112°"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¹ ˆÄÿ1J$1d6c9ce6-0c74-435f-b3df-ec1dd4ace145
+Ž	java:S112Å"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ú¸ÊÇÿ1J$500fa5c1-1f27-48a2-a462-0b91d67c12b2
 j
-java:S2189#""Add an end condition to this loop.(˜ïˆžÿÿÿÿÿ8Ç¢ˆÄÿ1J$7747f52e-6d85-4a2c-8ce3-b4a7585569e9
+java:S2189c""Add an end condition to this loop.(˜ïˆžÿÿÿÿÿ8Æ¢ˆÄÿ1J$04651478-db19-45ae-b265-809e5168d9b5
 j
-java:S2189c""Add an end condition to this loop.(˜ïˆžÿÿÿÿÿ8Æ¢ˆÄÿ1J$7ad9a2a6-d508-4ad9-8c5d-cb2274c779c0
-¡	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(õÞÿáøÿÿÿÿ8Ç¢ˆÄÿ1J$c87dc3e6-d79f-40b8-af4a-5318ade7dc4c
-m	java:S106!"+Replace this use of System.out by a logger.(”½îÿ8Ë¢ˆÄÿ1J$c0455770-6ec0-46eb-9616-f59e6da816d7
-m	java:S106%"+Replace this use of System.out by a logger.(ò”À¤8Ì¢ˆÄÿ1J$394b8470-6f35-4421-9472-ec8fc715ca2b
+java:S2189#""Add an end condition to this loop.(˜ïˆžÿÿÿÿÿ8Ç¢ˆÄÿ1J$5d0b521f-9eef-4f47-9b35-f7964013b2a4
+¡	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(õÞÿáøÿÿÿÿ8Ç¢ˆÄÿ1J$2d349e03-3207-4d22-b410-418a5187ccc8
+m	java:S106!"+Replace this use of System.out by a logger.(”½îÿ8Ë¢ˆÄÿ1J$c2ca6c1d-1ead-40e4-833e-2b1c09369b6d
+m	java:S106%"+Replace this use of System.out by a logger.(ò”À¤8Ì¢ˆÄÿ1J$3748ff5b-5815-4cb6-9af0-23a9bccd2ce2
 ¡
-java:S14503"YRemove the "uniqueCode" field and declare it as a local variable in the relevant methods.(ä¡þ‡ûÿÿÿÿ8Ï¢ˆÄÿ1J$64cba2eb-ca82-416e-aa6d-0b9eaa3cac32
+java:S14503"YRemove the "uniqueCode" field and declare it as a local variable in the relevant methods.(ä¡þ‡ûÿÿÿÿ8Ï¢ˆÄÿ1J$22a07fe2-4dbe-4f19-8091-e5a826150374
 š
-java:S14502"WRemove the "username" field and declare it as a local variable in the relevant methods.(‘ó¹²8Ï¢ˆÄÿ1J$a2ac844c-00ee-4249-8c96-3da97b429576
-m	java:S106="+Replace this use of System.out by a logger.(Ö‰¹à8Ñ¢ˆÄÿ1J$b3925fd1-5a70-4054-b9b4-ebc95d7d2db9
-r	java:S106H"+Replace this use of System.out by a logger.(œœ¬™üÿÿÿÿ8Ò¢ˆÄÿ1J$2b929b5d-7f62-4ace-b21d-fbd37b4c8e3b
+java:S14502"WRemove the "username" field and declare it as a local variable in the relevant methods.(‘ó¹²8Ï¢ˆÄÿ1J$9bb146b5-632e-4a6c-aa6a-a025960d42e9
+m	java:S106="+Replace this use of System.out by a logger.(Ö‰¹à8Ñ¢ˆÄÿ1J$081787d4-847d-4c7f-9b69-2ecaf619117b
+r	java:S106H"+Replace this use of System.out by a logger.(œœ¬™üÿÿÿÿ8Ò¢ˆÄÿ1J$b770911e-7034-4dbb-8d01-9932d5f066e4
 r
-java:S2093>"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8Ô¢ˆÄÿ1J$6e2fc8ca-ae42-4403-8ff6-dbe15b2a27d9
+java:S2093>"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8Ô¢ˆÄÿ1J$d59ced1f-5570-4828-806d-fff4625b7697
 ¡
-java:S2142g"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8Õ¢ˆÄÿ1J$b2bc580b-d07c-49ce-9a5f-6b41eb713b10
+java:S2142g"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8Õ¢ˆÄÿ1J$85f72f47-1d5b-4dad-af21-ee0ba94326cd
 
-java:S1117u"<Rename "username" which hides the field declared at line 50.(ýÛšò8Ö¢ˆÄÿ1J$0a1d2a95-6b12-4a19-af10-060d4fcb8807
-n	java:S106¨"+Replace this use of System.out by a logger.(ÞÆ ý8Ú¢ˆÄÿ1J$5ec1d7d5-aa83-4616-9ce3-2c26dfdaa754
+java:S1117u"<Rename "username" which hides the field declared at line 50.(ýÛšò8Ö¢ˆÄÿ1J$c8ec24ec-b340-4443-9945-bb31a94258cc
+n	java:S106¬"+Replace this use of System.out by a logger.(ÞÆ ý8Ú¢ˆÄÿ1J$b2a45af6-3efe-40ab-8062-8257e9dfed17
 ¢
-java:S2142«"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8Ú¢ˆÄÿ1J$a3573c24-8f00-40ad-9649-604770c0e0eb
+java:S2142¯"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8Ú¢ˆÄÿ1J$10160a01-6da3-40fa-bfd3-84ebbdba8ea6
 b
-java:S2119²"Save and re-use this "Random".(îð®»8Ü¢ˆÄÿ1J$52d9dd2c-5549-42d4-bd87-3822d6765323
+java:S2119¶"Save and re-use this "Random".(îð®»8Ü¢ˆÄÿ1J$089091c6-6899-454b-8600-58caddfd6968
 s
-java:S1128"0Remove this unused import 'java.sql.Connection'.(¥ËôÖ8·ç€Çÿ1J$a40d0fae-7d0a-4f23-907f-e5fc1a8a9364
+java:S1128"0Remove this unused import 'java.sql.Connection'.(¥ËôÖ8·ç€Çÿ1J$862b519c-a4f7-490a-b44f-21d978fb738b
 v
-java:S1128"3Remove this unused import 'java.sql.DriverManager'.(“£°8¸ç€Çÿ1J$a63a073d-0053-49b4-8388-82835ab3c015
+java:S1128"3Remove this unused import 'java.sql.DriverManager'.(“£°8¸ç€Çÿ1J$13470251-9c58-4ba6-b269-3507eec473e7
 
-java:S1128"7Remove this unused import 'java.sql.PreparedStatement'.(òÄ™ƒÿÿÿÿÿ8¸ç€Çÿ1J$59cfed26-e73e-484c-87d4-5327036c2dc5
+java:S1128"7Remove this unused import 'java.sql.PreparedStatement'.(òÄ™ƒÿÿÿÿÿ8¸ç€Çÿ1J$562f975c-0db0-430d-be5b-66944f70c372
 q
-java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8¸ç€Çÿ1J$2c0eba1e-09ea-4c67-8aa2-be197c29a714
+java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8¸ç€Çÿ1J$5d9f8e1c-df09-4c69-9ae0-9631490e2208
 u
-java:S1128"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8¸ç€Çÿ1J$bdab3198-a3f3-49de-835a-b0ceec500087
+java:S1128"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8¸ç€Çÿ1J$b2b676c8-9a40-41c9-bb5c-acd12947fe95
 z
-java:S1068"2Remove this unused "nextUniqueCode" private field.(õÞÿáøÿÿÿÿ8Þ¢ˆÄÿ1J$fc971bb5-a7cc-4d04-94a7-55de35a7d9c0
+java:S1068"2Remove this unused "nextUniqueCode" private field.(õÞÿáøÿÿÿÿ8Þ¢ˆÄÿ1J$a6a88370-98fb-4830-9a46-d34a2de8215e

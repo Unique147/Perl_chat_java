@@ -1,10 +1,16 @@
 
-	java:S112Ş"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8º§ÁÇÿ1J$fe7249ec-db72-4a85-8f1e-4fb7f9a77756
+	java:S112à"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8º§ÁÇÿ1J$2f2d60e9-8701-42c2-8291-5ab30965b119
 
-java:S1192p"KDefine a constant instead of duplicating this literal "ĞĞ°Ğ·Ğ°Ğ´" 3 times.(ÈËÄË8¾§ÁÇÿ1J$74e6b411-b392-4d4b-9bde-9033b1f86a97
+java:S1192r"KDefine a constant instead of duplicating this literal "ĞĞ°Ğ·Ğ°Ğ´" 3 times.(ÈËÄË8¾§ÁÇÿ1J$58bf29ba-50b7-43c7-afdc-f59faa82fd32
 ”
-java:S1192V"LDefine a constant instead of duplicating this literal "/styles.css" 5 times.(Ïäßóûÿÿÿÿ8¾§ÁÇÿ1J$dd804cd8-7796-4107-a172-162d29f50ec2
+java:S1192X"LDefine a constant instead of duplicating this literal "/styles.css" 5 times.(Ïäßóûÿÿÿÿ8¾§ÁÇÿ1J$aadb59d0-014e-462a-8816-53c0212759c1
 £
-java:S1450/"[Remove the "messageField" field and declare it as a local variable in the relevant methods.(ãƒ¸Ãşÿÿÿÿ8ª¨ÁÇÿ1J$eca94b5a-5360-4e46-a01d-4248baa7a79f
+java:S14501"[Remove the "messageField" field and declare it as a local variable in the relevant methods.(ãƒ¸Ãşÿÿÿÿ8ª¨ÁÇÿ1J$fad0e6fa-25f8-4add-8288-da856e2a5f50
+…
+java:S1854º"BRemove this useless assignment to local variable "hashedPassword".(Êèô8ã³çÈÿ1J$5082b15c-e14c-4833-b0f5-41212a506c3b
+v
+java:S1481º"3Remove this unused "hashedPassword" local variable.(Êèô8ä³çÈÿ1J$25094eac-c8e8-4717-8d4b-b2c5e7136981
 ¢
-java:S2142í"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8©ÁÇÿ1J$3356451c-4f16-49b7-a942-b315d7d2fdf1
+java:S2142ï"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8©ÁÇÿ1J$ccf0729f-f9ff-44a1-897b-caf1ed45ad11
+p
+java:S1128"-Remove this unused import 'java.util.Base64'.(ëŠ»Õ8‘®ğÈÿ1J$857d6048-1b5a-4fcd-894c-a4bb4abb7683
