@@ -9,25 +9,22 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Base64;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+
 public class ChatServer {
 
     private static final int PORT = 12345;
-    private static final Map<String, ClientHandler> clients = new HashMap<>();
+    private static HashMap<String, ClientHandler> clients = new HashMap<>();
     private static final Map<String, String> confirmationCodes = new HashMap<>();
-    private static final int nextUniqueCode = 1;
-    private static final BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
+    private static ArrayList<User> registeredUsers = new ArrayList<>();
+    private static int nextUniqueCode = 1;
+    private static BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
 
     public static void main(String[] args) {
         System.out.println("Сервер запущен...");
@@ -51,7 +48,7 @@ public class ChatServer {
         private String uniqueCode;
         private BlockingQueue<String> messageQueue;
 
-        public ClientHandler(Socket socket, BlockingQueue<String> messageQueue) {
+        public ClientHandler(Socket socket, BlockingQueue<String> messageQueue) { // Убрали TextArea
             this.socket = socket;
             this.messageQueue = messageQueue;
         }
@@ -144,8 +141,6 @@ public class ChatServer {
                 out.println("LOGIN_FAIL");
             }
         }
-
-
         private void handleConfirmCode() throws IOException {
             String email = in.readLine();
             String code = in.readLine();
@@ -158,13 +153,11 @@ public class ChatServer {
                 out.println(username);
                 out.println(uniqueCode);
                 clients.put(uniqueCode, this);
-                new Thread(this::processMessages).start();
+
             } else {
                 out.println("CONFIRM_FAIL");
             }
         }
-
-
 
         private void handleChat() throws IOException {
             String userCode = in.readLine();
@@ -176,8 +169,6 @@ public class ChatServer {
                 throw new RuntimeException(e);
             }
         }
-
-
         private String generateConfirmationCode(String email) {
             String code = String.valueOf(new Random().nextInt(899999) + 100000);
             confirmationCodes.put(email, code);
@@ -197,8 +188,22 @@ public class ChatServer {
                 throw new RuntimeException(e);
             }
         }
+
         private String generateUniqueCode() {
-            return Base64.getEncoder().encodeToString(new byte[16]); // Генерирует случайный уникальный код
+            return String.valueOf(nextUniqueCode++);
         }
+    }
+
+    private static class User {
+        private String username;
+        private String email;
+        private String password;
+
+        public User(String username, String email, String password) {
+            this.username = username;
+            this.email = email;
+            this.password = password;
+        }
+
     }
 }

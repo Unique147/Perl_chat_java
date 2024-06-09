@@ -1,16 +1,21 @@
 
-	java:S112à"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8º§ÁÇÿ1J$2f2d60e9-8701-42c2-8291-5ab30965b119
 
-java:S1192r"KDefine a constant instead of duplicating this literal "ĞĞ°Ğ·Ğ°Ğ´" 3 times.(ÈËÄË8¾§ÁÇÿ1J$58bf29ba-50b7-43c7-afdc-f59faa82fd32
+java:S1192a"KDefine a constant instead of duplicating this literal "ĞĞ°Ğ·Ğ°Ğ´" 3 times.(ÈËÄË8Õ–µâÿ1J$388672c4-0cba-4b74-a7b3-47f8030cfc24
 ”
-java:S1192X"LDefine a constant instead of duplicating this literal "/styles.css" 5 times.(Ïäßóûÿÿÿÿ8¾§ÁÇÿ1J$aadb59d0-014e-462a-8816-53c0212759c1
+java:S1192J"LDefine a constant instead of duplicating this literal "/styles.css" 5 times.(Ïäßóûÿÿÿÿ8¯ü·áÿ1J$8ba94ff4-ace4-4f6d-a008-d584468c13cd
+
+java:S2095¶"DUse try-with-resources or close this "Socket" in a "finally" clause.(òş Èÿÿÿÿÿ8àëèâÿ1J$9bac6d37-3d1a-4280-a040-9ca6064ca6d7
 £
-java:S14501"[Remove the "messageField" field and declare it as a local variable in the relevant methods.(ãƒ¸Ãşÿÿÿÿ8ª¨ÁÇÿ1J$fad0e6fa-25f8-4add-8288-da856e2a5f50
-…
-java:S1854º"BRemove this useless assignment to local variable "hashedPassword".(Êèô8ã³çÈÿ1J$5082b15c-e14c-4833-b0f5-41212a506c3b
-v
-java:S1481º"3Remove this unused "hashedPassword" local variable.(Êèô8ä³çÈÿ1J$25094eac-c8e8-4717-8d4b-b2c5e7136981
+java:S1450+"[Remove the "messageField" field and declare it as a local variable in the relevant methods.(ãƒ¸Ãşÿÿÿÿ8¶å¼áÿ1J$2904c9f3-a3e3-45a5-bfed-c5c67b2fa9eb
+©
+java:S1450%"aRemove the "passwordFieldLogin" field and declare it as a local variable in the relevant methods.(èÓµ¥ıÿÿÿÿ8úâ²âÿ1J$494d3304-aa18-4d80-9423-e7daea3bcd6c
+
+java:S1117t">Rename "emailField" which hides the field declared at line 35.(å§Üƒ8…ş·áÿ1J$8f534c79-d860-4f6a-923e-602fc4e1fd6b
+ƒ
+java:S1117¶":Rename "socket" which hides the field declared at line 38.(òş Èÿÿÿÿÿ8šş·áÿ1J$5f848e77-a7a4-4143-83cb-5085c7b2a678
+€
+java:S1117·"7Rename "out" which hides the field declared at line 39.(ÜÂ§™øÿÿÿÿ8šş·áÿ1J$7485584d-3782-430f-aa7b-cea09e01ddb7
+
+java:S1117¸"6Rename "in" which hides the field declared at line 40.(ÜÜ³¹ùÿÿÿÿ8›ş·áÿ1J$19663166-c861-4519-80db-4fc95d64040a
 ¢
-java:S2142ï"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8©ÁÇÿ1J$ccf0729f-f9ff-44a1-897b-caf1ed45ad11
-p
-java:S1128"-Remove this unused import 'java.util.Base64'.(ëŠ»Õ8‘®ğÈÿ1J$857d6048-1b5a-4fcd-894c-a4bb4abb7683
+java:S2142µ"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¬ş·áÿ1J$5013d7a7-4077-49e5-a201-d0c53906189a
