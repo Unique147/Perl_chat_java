@@ -158,7 +158,7 @@ public class ChatInterface extends Application {
     private void loginUser(String email, String password) {
         try {
 
-            socket = new Socket("192.168.1.65", 12345);
+            socket = new Socket("192.168.1.68", 12345);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -179,7 +179,7 @@ public class ChatInterface extends Application {
 
     private void registerUser() {
         try {
-            Socket socket = new Socket("192.168.1.65", 12345);
+            Socket socket = new Socket("192.168.1.68", 12345);
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 

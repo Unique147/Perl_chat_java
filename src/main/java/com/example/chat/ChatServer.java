@@ -22,7 +22,6 @@ public class ChatServer {
     private static final int PORT = 12345;
     private static HashMap<String, ClientHandler> clients = new HashMap<>();
     private static final Map<String, String> confirmationCodes = new HashMap<>();
-    private static ArrayList<User> registeredUsers = new ArrayList<>();
     private static int nextUniqueCode = 1;
     private static BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
 
@@ -194,16 +193,4 @@ public class ChatServer {
         }
     }
 
-    private static class User {
-        private String username;
-        private String email;
-        private String password;
-
-        public User(String username, String email, String password) {
-            this.username = username;
-            this.email = email;
-            this.password = password;
-        }
-
-    }
 }

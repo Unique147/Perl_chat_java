@@ -38,23 +38,6 @@ public class DatabaseManager {
             return false;
         }
     }
-
-    public static boolean validateUser(String email, String hashedPassword) {
-        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
-        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, email);
-            statement.setString(2, hashedPassword);
-            ResultSet resultSet = statement.executeQuery();
-            return resultSet.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-
-
     public static boolean checkUserExists(String username, String email) {
         String query = "SELECT * FROM users WHERE username = ? OR email = ?";
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
